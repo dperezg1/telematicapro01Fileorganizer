@@ -21,13 +21,15 @@ models.forEach(function (model) {
 });
 
 var originsWhitelist = [
-  'http://localhost:4200'    //this is my front-end url for development
+  'http://localhost/test1/'    //this is my front-end url for development
 
 ];
 
 var corsOptions = {
   origin: function(origin, callback){
     var isWhitelisted = originsWhitelist.indexOf(origin) !== -1;
+    console.log("esto es origin"+origin);
+    console.log("esto es isWhii"+isWhitelisted)
     callback(null, isWhitelisted);
   },
   credentials:true
@@ -35,7 +37,12 @@ var corsOptions = {
 
 //here is the magic
 app.use(cors(corsOptions));
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Credentials","true");
+  next();
+});
 
 app.use(session({
   secret: 'secreto',

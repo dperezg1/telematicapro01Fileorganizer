@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
 
 module.exports = {
   createFile: function (req, res) {
-    res.header("Access-Control-Allow-Origin", "*");
+    //res.header("Access-Control-Allow-Origin", "*");
     res.header("Content-Type", "application/json");
     var file = new File({
       title: req.body.title,
@@ -45,6 +45,7 @@ module.exports = {
   getAllFiles: function(req, res){
     File.find({visibility: "public", year: new RegExp("2017")},function(err, files){
       if(!err) {
+	console.log(res)
         res.status(200).send(files);
       }else{
         res.status(500).send(err);
@@ -107,5 +108,3 @@ module.exports = {
     });
   }
 };
-
-

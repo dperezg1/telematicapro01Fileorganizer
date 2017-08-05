@@ -64,7 +64,7 @@ export class OrganizerComponent implements OnInit{
         console.log(res);
         if(res.status.toString().indexOf("200")!=-1){
           console.log("entre a este");
-          window.location.reload();
+          this.router.navigate(['/']);
         }
       })
     }else{console.log("false")}

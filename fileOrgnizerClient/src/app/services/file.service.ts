@@ -6,8 +6,8 @@ import { File } from '../../modelos/file';
 
 @Injectable()
 export class FileService {
-  private headers = new Headers({"Access-Control-Allow-Origin": "*", "Content-Type": "application/json"});
-  private fileUrl = 'http://localhost:3000';
+  private headers = new Headers({ "Content-Type": "application/json"});
+  private fileUrl = 'http://localhost:4000';
   constructor(private http: Http) {
   }
 

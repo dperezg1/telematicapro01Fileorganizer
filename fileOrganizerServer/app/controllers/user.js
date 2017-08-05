@@ -6,7 +6,7 @@ module.exports = {
 
 
   deleteUser: function (req, res) {
-    res.header("Access-Control-Allow-Origin", "*");
+    //res.header("Access-Control-Allow-Origin", "localhost/");
     res.header("Content-Type", "application/json");
     User.findOneAndRemove({username:req.body.username}, function (err) {
       if (!err) {
@@ -105,4 +105,3 @@ module.exports = {
     });
   }
 };
-
