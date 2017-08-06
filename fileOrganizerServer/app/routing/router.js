@@ -11,7 +11,7 @@ var express = require('express'),
 
 // user
 
- 	router.post('/userDelete', users.deleteUser);
+ router.post('/user', users.deleteUserAndFiles);
   router.get('/getUsers', users.getAllUsers);
   router.post('/searchUser', users.searchUser);
   router.post('/updateUser',users.updateUser);
@@ -38,4 +38,4 @@ router.get('/userInfo', passportConfig.estaAutenticado, function (req,res) {
   router.post('/getFiles', files.getMyFiles);
   router.post('/shareFileWith', files.shareFileWith);
   router.post('/searchFile', files.searchFile);
-  router.post('/updateFile',files.updateFile);
+ router.post('/user', users.deleteUserAndFiles);

@@ -47,6 +47,25 @@ export class ModifyAccountComponent implements OnInit{
     this.router.navigate(link);
   }
 
+deleteAccount():void {
+    if(confirm("Do you want to delete the Account?")) {
+      this.personService.getLogUserInfo().then(res => {
+        let username = JSON.parse(res._body).username;
+        this.personService.deleteAccount(username).then(res => {
+          if(res.status.toString().indexOf("200")!=-1){
+            this.gotoHome();
+          }
+        })
+      })
+    }
+  }
+
+  gotoHome():void{
+    let link = ["/home"];
+    this.router.navigate(link);
+  }
+
+
 
 
 

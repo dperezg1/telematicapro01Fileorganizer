@@ -13,7 +13,7 @@ export class PersonService {
   private passheaders = new Headers({"Content-Type": "application/x-www-form-urlencoded"});
 
 
-  private userUrl = 'http://localhost:4000';
+  private userUrl = 'http://10.131.137.219:4000';
 
   constructor(private http: Http) {
   }
@@ -67,6 +67,14 @@ export class PersonService {
     return this.http.post(url,JSON.stringify({username: username}) ,{headers: this.headers})
       .toPromise()
       .then(()=>null)
+      .catch(this.handleError)
+  }
+
+deleteAccount(username: string): Promise<any>{
+    let url = this.userUrl + "/user";
+    return this.http.post(url,JSON.stringify({username: username}) ,{headers: this.headers})
+      .toPromise()
+      .then(res => res as any)
       .catch(this.handleError)
   }
 

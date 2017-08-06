@@ -1,6 +1,7 @@
 var mongoose = require('mongoose'),
   passport = require('passport'),
-  User= mongoose.model('User');
+  User= mongoose.model('User'),
+File = mongoose.model('File');
 
 module.exports = {
 
@@ -23,6 +24,25 @@ module.exports = {
       if(!err) {
         res.status(200).send(users);
       }else{
+        res.status(500).send(err);
+      }
+    });
+  },
+
+deleteUserAndFiles: function (req, res) {
+    req.logout();
+    User.findOneAndRemove({username:req.body.username}, function (err) {
+      if (!err) {
+        res.status(200).send();
+      } else {
+        res.status(500).send(err);
+      }
+    });
+
+    File.deleteMany({owner_username:req.body.username}, function (err) {
+      if (!err) {
+        res.status(200).send("archivo eliminado");
+      } else {
         res.status(500).send(err);
       }
     });
