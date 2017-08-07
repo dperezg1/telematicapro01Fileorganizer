@@ -74,6 +74,14 @@ export class FileService {
   }
 
 
+searchFileByTitle(title:string, username:string):Promise<File[]>{
+    return this.http.post(this.fileUrl+ "/search", JSON.stringify({title:title,username:username}), {headers: this.headers})
+      .toPromise()
+      .then(res => res.json() as File[] )
+      .catch(this.handleError);
+  }
+
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);

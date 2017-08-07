@@ -9,7 +9,7 @@ import { Person } from '../../modelos/person';
 
 @Injectable()
 export class PersonService {
-  private headers = new Headers();
+  private headers = new Headers({"Content-Type":"application/json"});
   private passheaders = new Headers({"Content-Type": "application/x-www-form-urlencoded"});
 
 

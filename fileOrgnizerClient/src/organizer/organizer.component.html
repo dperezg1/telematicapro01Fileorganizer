@@ -36,6 +36,12 @@
 
           <form class="form-inline">
 
+            <div class="form-group">
+              <label for="search">File name</label>
+              <input #search type="text" class="form-control" id="search" placeholder="file name">
+            </div>
+            <button type="submit" class="btn btn-default" (click)="searchFileByTitle(search.value)">Search</button>
+
             <button class="btn btn-primary create pull-right" (click)="gotoCreateFile()" > New File</button>
           </form>
 

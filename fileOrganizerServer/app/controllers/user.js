@@ -53,9 +53,9 @@ deleteUserAndFiles: function (req, res) {
     User.findOne({username:req.body.username},function(err,user){
       if(!err) {
         if(user){
-          return res.status(200).send("true");
+          return res.status(200).send('true');
         }else{
-          return res.status(201).send("false");
+          return res.status(201).send('false');
         }
       }else{
         return res.status(500).send(err);

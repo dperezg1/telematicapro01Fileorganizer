@@ -23,7 +23,7 @@ export class ShareFileComponent implements OnInit{
     })
   }
 
-  shareFile(username:string):void{
+    shareFile(username:string):void{
     this.personService.searchUser(username).then(res=>{
 		console.log(username);
 		console.log(res);

@@ -93,6 +93,16 @@ module.exports = {
     })
   },
 
+  searchFileByTitle: function (req,res) {
+    File.find({title:new RegExp(req.body.title,"i"),owner_username:req.body.username},function(err,files){
+      if(!err) {
+        return res.status(200).send(files)
+      }else{
+        return res.status(500).send(err);
+      }
+    })
+  },
+
 
   updateFile:function(req,res) {
           File.findByIdAndUpdate({_id:req.body._id},req.body,{new:true},function (err,file) {

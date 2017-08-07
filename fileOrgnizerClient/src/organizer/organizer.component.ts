@@ -64,7 +64,14 @@ export class OrganizerComponent implements OnInit{
         console.log(res);
         if(res.status.toString().indexOf("200")!=-1){
           console.log("entre a este");
-          this.router.navigate(['/']);
+          this.personService.getLogUserInfo().then(res=>{
+            let username = JSON.parse(res._body).username;
+            this.fileService.getMyFiles(username).then(res=>{
+              this.files = res;
+            })
+          }) 
+
+
         }
       })
     }else{console.log("false")}
@@ -74,5 +81,19 @@ export class OrganizerComponent implements OnInit{
     let link = ["/shareFile"];
     this.router.navigate(['/shareFile',id]);
   }
+
+searchFileByTitle(title:string):void{
+    this.personService.getLogUserInfo().then(res=>{
+      let username = JSON.parse(res._body).username;
+      this.fileService.searchFileByTitle(title,username).then(res=>{
+        this.files = res;
+
+      })
+    })
+  }
+
+
+
+
 
 }

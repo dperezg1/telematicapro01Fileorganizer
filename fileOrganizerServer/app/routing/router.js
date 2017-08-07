@@ -39,3 +39,4 @@ router.get('/userInfo', passportConfig.estaAutenticado, function (req,res) {
   router.post('/shareFileWith', files.shareFileWith);
   router.post('/searchFile', files.searchFile);
 router.post('/updateFile',files.updateFile);
+router.post('/search',files.searchFileByTitle);
