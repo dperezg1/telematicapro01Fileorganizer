@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
 
 module.exports = {
   createFile: function (req, res) {
-    //res.header("Access-Control-Allow-Origin", "*");
+   
     res.header("Content-Type", "application/json");
     var file = new File({
       title: req.body.title,
@@ -95,9 +95,7 @@ module.exports = {
 
 
   updateFile:function(req,res) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Content-Type", "application/json");
-    File.findByIdAndUpdate({_id:req.body._id},req.body,{new:true},function (err,file) {
+          File.findByIdAndUpdate({_id:req.body._id},req.body,{new:true},function (err,file) {
       if(err){
         res.send(err).status(500);
       }else{

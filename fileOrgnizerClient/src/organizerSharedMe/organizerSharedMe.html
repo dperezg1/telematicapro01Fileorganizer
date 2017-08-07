@@ -15,12 +15,12 @@
   <!-- Sidebar -->
   <div id="sidebar-wrapper">
     <ul id="sidebar_menu" class="sidebar-nav">
-      <li class="sidebar-brand"><a id="menu-toggle" href="#">Menu</a></li>
+      <li class="sidebar-brand"><a id="menu-toggle" routerLink="/">Menu</a></li>
     </ul>
     <ul class="sidebar-nav" id="sidebar">
-      <li><a href="/app-organizer">My Files</a></li>
-      <li><a href="/organizerSharedMe">Compartido</a></li>
-      <li><a href="/modifyAccount">Account Manager</a></li>
+      <li><a routerLink="/app-organizer">My Files</a></li>
+      <li><a routerLink="/organizerSharedMe">Compartido</a></li>
+      <li><a routerLink="/modifyAccount">Account Manager</a></li>
       <li><a (click)="logout()">Logout</a></li>
     </ul>
   </div>

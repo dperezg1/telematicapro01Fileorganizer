@@ -111,9 +111,8 @@ deleteUserAndFiles: function (req, res) {
   },
 
   updateUser:function(req,res) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Content-Type", "application/json");
-    User.findOneAndUpdate({username:req.body.username},req.body,{new:true},function (err) {
+   
+      User.findOneAndUpdate({username:req.body.username},req.body,{new:true},function (err) {
       if(err){
         res.send(err).status(500);
         console.log(err);

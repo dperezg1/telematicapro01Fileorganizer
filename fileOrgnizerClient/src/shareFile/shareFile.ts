@@ -25,6 +25,8 @@ export class ShareFileComponent implements OnInit{
 
   shareFile(username:string):void{
     this.personService.searchUser(username).then(res=>{
+		console.log(username);
+		console.log(res);
       if(res._body.toString().indexOf("true")!=-1){
         this.fileService.shareFileWith(this.id,username).then(res=>{
           if(res.status.toString().indexOf("200")!=-1){
