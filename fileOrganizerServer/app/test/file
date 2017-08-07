@@ -1,0 +1,13 @@
+{
+	"title":"nuevo documento",
+ 	"type": "mp3",
+ 	"size":"50mb",
+ 	"owner_id": "598321a004bdf8285ca3cb76",
+ 	"lastChange":"2016",
+ 	"year":"2015",
+ 	"visibilities":"public",
+ 	"shared_with": [{
+ 		"username": "diegoa1024"
+ 	}]
+
+}
