@@ -37,5 +37,5 @@ router.get('/userInfo', passportConfig.estaAutenticado, function (req,res) {
   router.post('/sharedWithMe', files.fileSharedWith);
   router.post('/getFiles', files.getMyFiles);
   router.post('/shareFileWith', files.shareFileWith);
-  router.get('/searchFile/:id', files.searchFile);
+  router.post('/searchFile', files.searchFile);
   router.post('/updateFile',files.updateFile);

@@ -82,6 +82,16 @@ module.exports = {
       }
     });
   },
+  searchFile: function (req,res) {
+    File.find({_id:req.body.id},function(err,file){
+      if(!err) {
+        return res.status(200).send(file)
+      }else{
+        return res.status(500).send(err);
+      }
+    })
+  },
+
 
   updateFile:function(req,res) {
     res.header("Access-Control-Allow-Origin", "*");

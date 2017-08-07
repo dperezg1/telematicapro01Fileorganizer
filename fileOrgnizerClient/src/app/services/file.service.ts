@@ -34,6 +34,14 @@ export class FileService {
       .catch(this.handleError);
   }
 
+  searchFile(id:string): Promise <File>{
+    let url = this.fileUrl + "/searchFile";
+    return this.http.post(url,JSON.stringify({id:id}) ,{headers: this.headers})
+      .toPromise()
+      .then(file =>file.json() as File)
+      .catch(this.handleError);
+  }
+
 
   getMyFiles(username : string): Promise<File[]> {
     let url = this.fileUrl + "/getFiles";
