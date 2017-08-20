@@ -48,7 +48,7 @@ se genera la base del cliente con angular
  		size:String,
  		owner_username: String,
  		year: String,
- 		visibility:String,
+ 		visibility:"public"|"private",
  		shared_with: [{
  			username: String
  		}]
